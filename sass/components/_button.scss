@@ -1,0 +1,62 @@
+.btn {
+    &:link,
+    &:visited {
+        display: inline-block;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        border-radius: 10rem;
+        font-size: 1.6rem;
+        /* for btn::after */
+        position: relative;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &::after {
+        /* pseudo element is treated as child of the actual element */
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* behind the button */
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    &--animated {
+        animation-name: moveInButton;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-out;
+        animation-delay: .75s;
+        /* it will add the 0% css properties to the element in the animation beginning */
+        animation-fill-mode: backwards;
+    }
+}
+
