@@ -1,4 +1,6 @@
 .btn {
+
+    &,
     &:link,
     &:visited {
         display: inline-block;
@@ -9,6 +11,10 @@
         font-size: $default-font-size;
         /* for btn::after */
         position: relative;
+
+        // Change for the <button> element
+        border: none;
+        cursor: pointer;
     }
 
     &:hover {
@@ -21,7 +27,9 @@
         }
     }
 
-    &:active {
+    &:active,
+    &:focus {
+        outline: none;
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black, .2);
     }
